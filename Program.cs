@@ -15,8 +15,6 @@ namespace Xadrex_Csharp
                 tab.colocarPeca(new Torre(tab, Cor.Preta), new Posicao(1, 3));
                 tab.colocarPeca(new Rei(tab, Cor.Preta), new Posicao(2, 4));
                
-
-
                 Tela.imprimirTabuleiro(tab);
                 
             }
@@ -25,6 +23,12 @@ namespace Xadrex_Csharp
                 Console.WriteLine(e.Message);
             }
             //Console.ReadLine();
+    
+            // PosicaoXadrez pos = new PosicaoXadrez('c',7);
+            // Console.WriteLine(pos);
+            // Console.WriteLine(pos.toPosicao());
+
+            // Console.WriteLine();
         }
     }
 }
