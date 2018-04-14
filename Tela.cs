@@ -1,5 +1,6 @@
 using tabuleiro;
 using System;
+using xadrez;
 namespace Xadrex_Csharp
 {
 
@@ -28,6 +29,7 @@ namespace Xadrex_Csharp
             }
             Console.WriteLine("  a b c d e f g h");
         }
+
         public static void imprimirPeca(Peca peca)
         {
             if (peca.cor == Cor.Branca)
@@ -41,6 +43,14 @@ namespace Xadrex_Csharp
                 Console.Write(peca);
                 Console.ForegroundColor = aux;
             }
+        }
+
+        public static PosicaoXadrez lerPosicaoXadrez(){
+            string s = Console.ReadLine();
+            char coluna = s[0];
+            int linha = int.Parse(s[1] + "");
+            return new PosicaoXadrez(coluna,linha);
+
         }
     }
 }
