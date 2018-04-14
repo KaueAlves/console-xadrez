@@ -1,4 +1,5 @@
 ﻿using System;
+using tabuleiro;
 
 namespace Xadrex_Csharp
 {
@@ -6,7 +7,10 @@ namespace Xadrex_Csharp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+        Posicao P;
+        P = new Posicao(3, 4);
+        
+        Console.WriteLine(P);
         }
     }
 }
