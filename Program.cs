@@ -7,10 +7,10 @@ namespace Xadrex_Csharp
     {
         static void Main(string[] args)
         {
-        Posicao P;
+        
         Tabuleiro tab = new Tabuleiro(8,8);
         
-        Console.WriteLine(tab);
+        Tela.imprimirTabuleiro(tab);
         }
     }
 }
