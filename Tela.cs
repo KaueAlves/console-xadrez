@@ -15,6 +15,9 @@ namespace Xadrex_Csharp
             Console.WriteLine();
             Console.WriteLine("Turno: " + partida.turno);
             Console.WriteLine("Aguardando a Jogada: " + partida.jogadorAtual);
+            if(partida.xeque){
+                Console.WriteLine("Xeque!");
+            }
             Console.WriteLine();
         }
         
