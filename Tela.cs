@@ -1,11 +1,45 @@
-using tabuleiro;
 using System;
+using System.Collections.Generic;
+using tabuleiro;
 using xadrez;
 namespace Xadrex_Csharp
 {
 
     class Tela
     {
+        public static void imprimirPartida(PartidaDeXadrez partida)
+        {
+            imprimirTabuleiro(partida.tab);
+            Console.WriteLine();
+            imprimirPecasCapturadas(partida);
+            Console.WriteLine();
+            Console.WriteLine("Turno: " + partida.turno);
+            Console.WriteLine("Aguardando a Jogada: " + partida.jogadorAtual);
+            Console.WriteLine();
+        }
+        
+        public static void imprimirPecasCapturadas(PartidaDeXadrez partida){
+            Console.WriteLine("Peças capturadas: ");
+            Console.Write("Brancas: ");
+            imprimirConjunto(partida.pecasCapturadas(Cor.Branca));
+            Console.WriteLine("");
+            Console.Write("Pretas: ");
+            ConsoleColor aux = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            imprimirConjunto(partida.pecasCapturadas(Cor.Preta));
+            Console.ForegroundColor = aux;
+        }
+
+        public static void imprimirConjunto(HashSet<Peca> conjunto){
+            Console.Write("[");
+            foreach (Peca x in conjunto)
+            {
+                Console.Write(x + " ");
+            }
+            Console.Write("]");
+           
+        }
+
         public static void imprimirTabuleiro(Tabuleiro tab)
         {
 
@@ -14,14 +48,14 @@ namespace Xadrex_Csharp
                 Console.Write(8 - i + " ");
                 for (int j = 0; j < tab.colunas; j++)
                 {
-                    imprimirPeca(tab.peca(i, j));   
+                    imprimirPeca(tab.peca(i, j));
                 }
                 Console.WriteLine();
             }
             Console.WriteLine("  a b c d e f g h");
         }
 
-         public static void imprimirTabuleiro(Tabuleiro tab, bool[,] possicoesPossiveis)
+        public static void imprimirTabuleiro(Tabuleiro tab, bool[,] possicoesPossiveis)
         {
             ConsoleColor fundoOriginal = Console.BackgroundColor;
             ConsoleColor fundoAlternado = ConsoleColor.DarkGray;
@@ -33,12 +67,15 @@ namespace Xadrex_Csharp
                 Console.Write(8 - i + " ");
                 for (int j = 0; j < tab.colunas; j++)
                 {
-                    if(possicoesPossiveis[i,j]){
+                    if (possicoesPossiveis[i, j])
+                    {
                         Console.BackgroundColor = fundoAlternado;
-                    }else{
+                    }
+                    else
+                    {
                         Console.BackgroundColor = fundoOriginal;
                     }
-                    imprimirPeca(tab.peca(i, j));   
+                    imprimirPeca(tab.peca(i, j));
                     Console.BackgroundColor = fundoOriginal;
                 }
                 Console.WriteLine();
@@ -65,7 +102,7 @@ namespace Xadrex_Csharp
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.Write(peca);
                     Console.ForegroundColor = aux;
-                    
+
                 }
                 Console.Write(" ");
             }
