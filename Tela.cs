@@ -14,14 +14,29 @@ namespace Xadrex_Csharp
             imprimirPecasCapturadas(partida);
             Console.WriteLine();
             Console.WriteLine("Turno: " + partida.turno);
+            if (!partida.terminada)
+            {
+                Console.WriteLine("Aguardando jogada: " + partida.jogadorAtual);
+                if (partida.xeque)
+                {
+                    Console.WriteLine("Xeque!");
+                }
+            }
+            else{
+                Console.WriteLine("XEQUEMATE!");
+                Console.Write("Vencedor: " + partida.jogadorAtual);
+            }
+
             Console.WriteLine("Aguardando a Jogada: " + partida.jogadorAtual);
-            if(partida.xeque){
+            if (partida.xeque)
+            {
                 Console.WriteLine("Xeque!");
             }
             Console.WriteLine();
         }
-        
-        public static void imprimirPecasCapturadas(PartidaDeXadrez partida){
+
+        public static void imprimirPecasCapturadas(PartidaDeXadrez partida)
+        {
             Console.WriteLine("Peças capturadas: ");
             Console.Write("Brancas: ");
             imprimirConjunto(partida.pecasCapturadas(Cor.Branca));
@@ -33,14 +48,15 @@ namespace Xadrex_Csharp
             Console.ForegroundColor = aux;
         }
 
-        public static void imprimirConjunto(HashSet<Peca> conjunto){
+        public static void imprimirConjunto(HashSet<Peca> conjunto)
+        {
             Console.Write("[");
             foreach (Peca x in conjunto)
             {
                 Console.Write(x + " ");
             }
             Console.Write("]");
-           
+
         }
 
         public static void imprimirTabuleiro(Tabuleiro tab)
