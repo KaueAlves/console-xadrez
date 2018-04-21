@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using tabuleiro;
 using xadrez;
@@ -15,6 +16,7 @@ namespace xadrez
         private HashSet<Peca> capturadas;
         public bool xeque {get; private set;}
         public Peca vulneravelEnPassant {get; private set;}
+        public string promocao {get; set;}
 
         public PartidaDeXadrez()
         {
@@ -180,13 +182,39 @@ namespace xadrez
             }
 
             Peca p = tab.peca(destino);
-            //#jogadaespecial
+            //#jogadaespecial Promoção
             if((p.cor == Cor.Branca && destino.linha == 0) || p.cor == Cor.Preta && destino.linha == 7){
                 p = tab.retirarPeca(destino);
                 pecas.Remove(p);
-                Peca dama = new Dama(tab, p.cor);
-                tab.colocarPeca(dama,destino);
-                pecas.Add(dama);
+                
+                Console.WriteLine("Escolha sua promoção: Dama | Bispo | Cavalo | Torre");
+                promocao = Console.ReadLine().ToLower();
+                switch (promocao)
+                {
+                    case "cavalo":
+                        Peca cavalo = new Cavalo(tab, p.cor);
+                        tab.colocarPeca(cavalo,destino);
+                        pecas.Add(cavalo);
+                        break;
+                    case "bispo":
+                        Peca bispo = new Bispo(tab, p.cor);
+                        tab.colocarPeca(bispo,destino);
+                        pecas.Add(bispo);
+                        break;
+                    case "torre":
+                        Peca torre = new Torre(tab, p.cor);
+                        tab.colocarPeca(torre,destino);
+                        pecas.Add(torre);
+                        break;
+                    default:
+                        Peca dama = new Dama(tab, p.cor);
+                        tab.colocarPeca(dama,destino);
+                        pecas.Add(dama);
+                        break;
+                }
+                
+            
+            
             }
 
             if(estaEmXeque(adversaria(jogadorAtual))){
