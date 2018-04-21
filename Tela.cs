@@ -25,7 +25,7 @@ namespace Xadrex_Csharp
             else
             {
                 Console.WriteLine("XEQUEMATE!");
-                Console.Write("Vencedor: " + partida.jogadorAtual);
+                Console.Write("Vencedor: " + partida.adversaria(partida.jogadorAtual));
             }
         }
 

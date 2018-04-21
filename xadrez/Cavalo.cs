@@ -3,12 +3,12 @@ using xadrez;
 
 namespace xadrez
 {
-    class Bispo : Peca
+    class Cavalo : Peca
     {
-        public Bispo(Tabuleiro tab, Cor cor) : base(tab,cor){ 
+        public Cavalo(Tabuleiro tab, Cor cor) : base(tab,cor){ 
         }
         public override string ToString(){
-            return "B";
+            return "C";
         }
 
         private bool podeMover(Posicao pos){
