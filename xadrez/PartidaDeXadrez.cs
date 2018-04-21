@@ -227,7 +227,7 @@ namespace xadrez
             // colocarNovaPeca('a', 2, new Torre(tab, Cor.Branca));
             // colocarNovaPeca('b', 2, new Torre(tab, Cor.Branca));
             // colocarNovaPeca('c', 2, new Torre(tab, Cor.Branca));
-            // colocarNovaPeca('d', 2, new Torre(tab, Cor.Branca));
+             colocarNovaPeca('d', 2, new Bispo(tab, Cor.Branca));
              colocarNovaPeca('e', 2, new Torre(tab, Cor.Branca));
             // colocarNovaPeca('f', 2, new Torre(tab, Cor.Branca));
             // colocarNovaPeca('g', 2, new Torre(tab, Cor.Branca));
