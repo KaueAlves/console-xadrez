@@ -42,6 +42,8 @@ namespace Xadrex_Csharp
                     }
 
                 }
+                Console.Clear();
+                Tela.imprimirPartida(partida);
             }
             catch (TabuleiroException e)
             {

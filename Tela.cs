@@ -22,17 +22,11 @@ namespace Xadrex_Csharp
                     Console.WriteLine("Xeque!");
                 }
             }
-            else{
+            else
+            {
                 Console.WriteLine("XEQUEMATE!");
                 Console.Write("Vencedor: " + partida.jogadorAtual);
             }
-
-            Console.WriteLine("Aguardando a Jogada: " + partida.jogadorAtual);
-            if (partida.xeque)
-            {
-                Console.WriteLine("Xeque!");
-            }
-            Console.WriteLine();
         }
 
         public static void imprimirPecasCapturadas(PartidaDeXadrez partida)
